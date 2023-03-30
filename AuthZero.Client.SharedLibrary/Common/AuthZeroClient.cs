@@ -36,12 +36,12 @@ namespace AuthZero.Client.SharedLibrary.Common
             };
         }
 
-        private async Task<Result<AccessTokenResponse>> GetAccessTokenByResourceOwnerPasswordAsync(
-            GetAccessTokenResourceOwnerRequest request, 
+        public async Task<Result<AccessTokenResponse>> GetAccessTokenByResourceOwnerPasswordAsync(
+            GetAccessTokenResourceOwnerRequest request,
             CancellationToken cancellationToken)
         {
             var response = await _httpClient.PostAsJsonAsync<GetAccessTokenResourceOwnerRequest>(
-                $"{_config.BaseAddress}/oauth/token",request, _serializationOptions, cancellationToken);
+                $"{_config.BaseAddress}/oauth/token", request, _serializationOptions, cancellationToken);
 
             if (!response.IsSuccessStatusCode)
             {
@@ -51,7 +51,7 @@ namespace AuthZero.Client.SharedLibrary.Common
             return await GenerateResponseResultAsync<AccessTokenResponse>(response.Content, cancellationToken);
         }
 
-        private async Task<Result<AccessTokenResponse>> GetAccessTokenByResourceOwnerPasswordAsync(
+        public async Task<Result<AccessTokenResponse>> GetAccessTokenByResourceOwnerPasswordAsync(
             GetAccessTokenClientCredentialsRequest request,
             CancellationToken cancellationToken)
         {
@@ -111,7 +111,7 @@ namespace AuthZero.Client.SharedLibrary.Common
             return await GenerateResponseResultAsync<UserResponse>(response.Content, cancellationToken);
         }
 
-        protected async Task<Result<List<Role>>> GetUserRolesAsync(string userId, CancellationToken cancellationToken)
+        public async Task<Result<List<Role>>> GetUserRolesAsync(string userId, CancellationToken cancellationToken)
         {
             var response = await _httpClient.GetAsync($"{_config.BaseAddress}/{_config.ApiPath}/{_config.ApiVersion}/users/{userId}/roles", cancellationToken);
             if (!response.IsSuccessStatusCode)
