@@ -16,7 +16,7 @@ namespace AuthZero.Client.SharedLibrary.Common.Extensions
                 config = t;
             });
 
-            services.AddHttpClient<AuthZeroClient>();
+            services.AddHttpClient<AuthZeroHttpClient>();
             return services;
         }
 
@@ -26,7 +26,7 @@ namespace AuthZero.Client.SharedLibrary.Common.Extensions
             AuthZeroConfiguration config = new();
 
             services.AddSingleton<AuthZeroConfiguration>(configuration);
-            services.AddHttpClient<AuthZeroClient>();
+            services.AddHttpClient<AuthZeroHttpClient>();
             return services;
         }
     }
