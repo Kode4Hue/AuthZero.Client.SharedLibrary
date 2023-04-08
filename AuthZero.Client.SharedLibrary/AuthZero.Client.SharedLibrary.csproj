@@ -5,7 +5,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <Title>KodeHue's AuthZero Clien</Title>
-    <Version>1.0.3</Version>
+    <Version>1.0.4</Version>
     <Authors>Hubert Graham</Authors>
   </PropertyGroup>
 
