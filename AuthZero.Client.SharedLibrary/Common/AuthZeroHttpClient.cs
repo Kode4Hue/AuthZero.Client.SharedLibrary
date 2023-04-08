@@ -15,14 +15,14 @@ using System.Text.Json;
 
 namespace AuthZero.Client.SharedLibrary.Common
 {
-    public class AuthZeroClient
+    public class AuthZeroHttpClient
     {
         private HttpClient _httpClient;
         private readonly AuthZeroConfiguration _config;
         private readonly JsonSerializerOptions _serializationOptions;
         private readonly JsonSerializerOptions _errorSerializationOptions;
 
-        public AuthZeroClient(HttpClient httpClient, AuthZeroConfiguration config)
+        public AuthZeroHttpClient(HttpClient httpClient, AuthZeroConfiguration config)
         {
             _httpClient = httpClient;
             _config = config;
