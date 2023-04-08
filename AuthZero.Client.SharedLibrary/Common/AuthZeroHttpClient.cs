@@ -51,7 +51,7 @@ namespace AuthZero.Client.SharedLibrary.Common
             return await GenerateResponseResultAsync<AccessTokenResponse>(response.Content, cancellationToken);
         }
 
-        public async Task<Result<AccessTokenResponse>> GetAccessTokenByResourceOwnerPasswordAsync(
+        public async Task<Result<AccessTokenResponse>> GetAccessTokenByClientCredentialsAsync(
             GetAccessTokenClientCredentialsRequest request,
             CancellationToken cancellationToken)
         {
