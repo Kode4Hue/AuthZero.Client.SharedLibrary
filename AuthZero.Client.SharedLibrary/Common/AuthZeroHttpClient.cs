@@ -6,6 +6,7 @@ using AuthZero.Client.SharedLibrary.Requests.ConfirmUserEmail;
 using AuthZero.Client.SharedLibrary.Requests.CreateAUser;
 using AuthZero.Client.SharedLibrary.Requests.GetAccessToken;
 using AuthZero.Client.SharedLibrary.Requests.GetAccessToken.ClientCredentials;
+using AuthZero.Client.SharedLibrary.Requests.GetAccessToken.RefreshToken;
 using AuthZero.Client.SharedLibrary.Requests.GetAccessToken.ResourceOwnerPassword;
 using AuthZero.Client.SharedLibrary.Requests.Roles;
 using AuthZero.Client.SharedLibrary.Requests.User;
@@ -63,6 +64,18 @@ namespace AuthZero.Client.SharedLibrary.Common
                 return await GetErrorResultAsync<AccessTokenResponse>(response.Content, cancellationToken);
             }
 
+            return await GenerateResponseResultAsync<AccessTokenResponse>(response.Content, cancellationToken);
+        }
+
+        public async Task<Result<AccessTokenResponse>> RefreshAccessTokenAsync(RefreshTokenRequest request, CancellationToken cancellationToken)
+        {
+            var response = await _httpClient.PostAsJsonAsync<RefreshTokenRequest>(
+                $"{_config.BaseAddress}/oauth/token", request, _serializationOptions, cancellationToken);
+
+            if (!response.IsSuccessStatusCode)
+            {
+                return await GetErrorResultAsync<AccessTokenResponse>(response.Content, cancellationToken);
+            }
             return await GenerateResponseResultAsync<AccessTokenResponse>(response.Content, cancellationToken);
         }
 
