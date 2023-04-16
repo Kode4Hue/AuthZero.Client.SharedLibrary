@@ -21,7 +21,7 @@ namespace AuthZero.Client.SharedLibrary.Requests.GetAccessToken.ResourceOwnerPas
 
         public GetAccessTokenResourceOwnerRequest()
         {
-            grantType = GrantTypes.ClientCredentials;
+            grantType = GrantTypes.Password;
         }
     }
 }
