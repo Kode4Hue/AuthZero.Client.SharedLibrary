@@ -23,8 +23,6 @@ namespace AuthZero.Client.SharedLibrary.Common.Extensions
         public static IServiceCollection AddAuthZeroClient(this IServiceCollection services, AuthZeroConfiguration configuration)
         {
             ArgumentNullException.ThrowIfNull(configuration, nameof(configuration));
-            AuthZeroConfiguration config = new();
-
             services.AddSingleton<AuthZeroConfiguration>(configuration);
             services.AddHttpClient<AuthZeroHttpClient>();
             return services;
