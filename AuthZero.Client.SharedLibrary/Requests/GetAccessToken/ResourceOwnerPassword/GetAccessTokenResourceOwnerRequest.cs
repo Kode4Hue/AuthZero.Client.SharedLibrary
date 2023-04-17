@@ -9,7 +9,7 @@ namespace AuthZero.Client.SharedLibrary.Requests.GetAccessToken.ResourceOwnerPas
         public string Password { get; set; }
         public string ClientId { get; set; }
         //public string ClientSecret { get; set; }
-        public string Audience { get; set; }
+        //public string Audience { get; set; }
 
         private readonly string grantType;
         public string GrantType { get
