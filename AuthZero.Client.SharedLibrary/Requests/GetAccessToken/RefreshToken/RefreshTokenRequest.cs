@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AuthZero.Client.SharedLibrary.Common.Constants;
 
 namespace AuthZero.Client.SharedLibrary.Requests.GetAccessToken.RefreshToken
 {
@@ -11,6 +7,19 @@ namespace AuthZero.Client.SharedLibrary.Requests.GetAccessToken.RefreshToken
 #nullable disable
         public string ClientId { get; set; }
         public string RefreshToken { get; set; }
+        private readonly string grantType;
+        public string GrantType
+        {
+            get
+            {
+                return grantType;
+            }
+        }
 #nullable enable
+
+        public RefreshTokenRequest()
+        {
+            grantType = GrantTypes.RefreshToken;
+        }
     }
 }
